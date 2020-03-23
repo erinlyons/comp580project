@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>How to Play the Game</title> 
+</head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
+<body style="background-color:BurlyWood ;">
+
+
+<script>
+var msg1 = new SpeechSynthesisUtterance();
+var msg = new SpeechSynthesisUtterance();
+msg1.text= 'Rules of the Game!';
+msg.text= 'You are going to be using the keyboard to Jam out to your favorite instrument. Using the right arrows you are going to select your instrument. From there using the four arrows, space key and enter key you can make some noise.';
+window.speechSynthesis.speak(msg1);
+window.speechSynthesis.speak(msg);
+</script>
+<a href="index.html"><button class= "return_button ">Return </button></a>
+<h1> " Rules of the Game"</h1>
+<p> You are going to be using the keyboard to Jam out to your favorite instrument. 
+Using the right arrows you are going to select your instrument. 
+From there using the four arrows, space key and enter key you can make some noise.</p>
+
+
+
+
+
+</body>
+</html>
