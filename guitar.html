@@ -2,79 +2,96 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Electric Guitar</title>
+  <title> Guitar</title>
   <link rel="stylesheet" href="01 - JavaScript Drum Kit/style.css">
 </head>
 <body></body>
 
-  <div class="keys">
-    <div data-key="65" class="key">
-      <kbd>A</kbd>
-      <span class="sound">A2</span>
+<div class="keys">
+    <div data-key="81" class="key">
+      <kbd>Q</kbd>
+      <span class="sound">C</span>
     </div>
-    <div data-key="83" class="key">
-      <kbd>S</kbd>
-      <span class="sound">A3</span>
+    <div data-key="87" class="key">
+      <kbd>W</kbd>
+      <span class="sound">Cs</span>
     </div>
-    <div data-key="68" class="key">
-      <kbd>D</kbd>
-      <span class="sound">A4</span>
+    <div data-key="69" class="key">
+      <kbd>E</kbd>
+      <span class="sound">D</span>
     </div>
-    <div data-key="70" class="key">
-      <kbd>F</kbd>
-      <span class="sound">A5</span>
+    <div data-key="82" class="key">
+      <kbd>R</kbd>
+      <span class="sound">Ds</span>
     </div>
-    <div data-key="71" class="key">
-      <kbd>G</kbd>
-      <span class="sound">C3</span>
+    <div data-key="84" class="key">
+      <kbd>T</kbd>
+      <span class="sound">E</span>
     </div>
-    <div data-key="72" class="key">
-      <kbd>H</kbd>
-      <span class="sound">C4</span>
+    <div data-key="89" class="key">
+      <kbd>Y</kbd>
+      <span class="sound">F</span>
     </div>
-    <div data-key="74" class="key">
-      <kbd>J</kbd>
-      <span class="sound">C5</span>
+    <div data-key="85" class="key">
+      <kbd>U</kbd>
+      <span class="sound">Fs</span>
     </div>
-    <div data-key="75" class="key">
-      <kbd>K</kbd>
-      <span class="sound">C6</span>
+    <div data-key="73" class="key">
+      <kbd>I</kbd>
+      <span class="sound">G</span>
     </div>
-    <div data-key="76" class="key">
-      <kbd>L</kbd>
-      <span class="sound">Cs2</span>
+    <div data-key="79" class="key">
+      <kbd>O</kbd>
+      <span class="sound">Gs</span>
     </div>
+    <div data-key="80" class="key">
+        <kbd>P</kbd>
+        <span class="sound">A</span>
+    </div>
+    <div data-key="219" class="key">
+        <kbd>[</kbd>
+        <span class="sound">As</span>
+      </div>
+      <div data-key="221" class="key">
+          <kbd>]</kbd>
+          <span class="sound">B</span>
+        </div>
   </div>
 
-  <audio data-key="65" src="tonejs-instruments/samples/guitar-electric/A2.wav"></audio>
-  <audio data-key="83" src="tonejs-instruments/samples/guitar-electric/A3.wav"></audio>
-  <audio data-key="68" src="tonejs-instruments/samples/guitar-electric/A4.wav"></audio>
-  <audio data-key="70" src="tonejs-instruments/samples/guitar-electric/A5.wav"></audio>
-  <audio data-key="71" src="tonejs-instruments/samples/guitar-electric/C3.wav"></audio>
-  <audio data-key="72" src="tonejs-instruments/samples/guitar-electric/C4.wav"></audio>
-  <audio data-key="74" src="tonejs-instruments/samples/guitar-electric/C5.wav"></audio>
-  <audio data-key="75" src="tonejs-instruments/samples/guitar-electric/C6.wav"></audio>
-  <audio data-key="76" src="tonejs-instruments/samples/guitar-electric/Cs2.wav"></audio>
+  <audio data-key="81" src="tonejs-instruments/samples/guitar-acoustic/C2.wav"></audio>
+  <audio data-key="87" src="tonejs-instruments/samples/guitar-acoustic/Cs2.wav"></audio>
+  <audio data-key="69" src="tonejs-instruments/samples/guitar-acoustic/D2.wav"></audio>
+  <audio data-key="82" src="tonejs-instruments/samples/guitar-acoustic/Ds2.wav"></audio>
+  <audio data-key="84" src="tonejs-instruments/samples/guitar-acoustic/E2.wav"></audio>
+  <audio data-key="89" src="tonejs-instruments/samples/guitar-acoustic/F2.wav"></audio>
+  <audio data-key="85" src="tonejs-instruments/samples/guitar-acoustic/Fs2.wav"></audio>
+  <audio data-key="73" src="tonejs-instruments/samples/guitar-acoustic/G2.wav"></audio>
+  <audio data-key="79" src="tonejs-instruments/samples/guitar-acoustic/Gs2.wav"></audio>
+  <audio data-key= "80" src="tonejs-instruments/samples/guitar-acoustic/A2.wav"></audio>
+  <audio data-key= "219" src="tonejs-instruments/samples/guitar-acoustic/As2.wav"></audio>
+  <audio data-key= "221" src="tonejs-instruments/samples/guitar-acoustic/B2.wav"></audio>
 
 <script>
-  function removeTransition(e) {
-    if (e.propertyName !== 'transform') return;
-    e.target.classList.remove('playing');
-  }
-
+  
   function playSound(e) {
     const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
     const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
-    if (!audio) return;
-
-    key.classList.add('playing');
-    audio.currentTime = 0;
+    key.classList.add('playing')
     audio.play();
   }
 
+  function stopSound (e){
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+    audio.pause();
+    key.classList.remove('playing');
+    audio.currentTime = 0;
+  }
+
   const keys = Array.from(document.querySelectorAll('.key'));
-  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+  //keys.forEach(key => key.addEventListener('transitionend', removeTransition));
   window.addEventListener('keydown', playSound);
+  window.addEventListener('keyup', stopSound);
 </script>
 
 
