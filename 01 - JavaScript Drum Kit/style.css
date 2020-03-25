@@ -1,11 +1,15 @@
 html {
-  font-size: 10px;
+  font-size: 20px;
   background-size: cover;
+  background-image: url("../background.jpg");
+  background-color: rgba(114, 44, 12, 0.877);
+  background-blend-mode: soft-light;
+
 }
 
 body,html {
-  margin: 0;
-  padding: 0;
+  margin: 10px 0;
+  padding: 0 10px;
   font-family: sans-serif;
 }
 
@@ -20,6 +24,11 @@ body,html {
 .section {
   align-items: center;
   text-align: center;
+  border-radius: 0px;  
+}
+
+.box {
+  background-color: #F9F7D7;
 }
 
 .key {
@@ -52,4 +61,32 @@ kbd {
   text-transform: uppercase;
   letter-spacing: .1rem;
   color: #ffc600;
+}
+
+/* h2 {
+  font-family: 'Tienne', serif;
+  font-size: 90px;
+} */
+
+button {
+  background-color: #34515e;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 25px;
+  margin: 0 15px;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.return_button{
+  background-color: #ad2300;
+  margin: 0 5px;
+  padding: 10px 20px;
+}
+
+.return{
+  text-align: left;
+  margin-bottom: 20px;
 }
