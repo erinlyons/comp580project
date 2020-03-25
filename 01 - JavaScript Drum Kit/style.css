@@ -17,7 +17,7 @@ body {
   flex: 1; */
   margin-top: 1em;
   display: grid;
-  grid-template-columns: 12rem 12rem 12rem 12rem;
+  grid-template-columns: 10.5rem 10.5rem 10.5rem 10.5rem;
   grid-template-rows: 9rem 9rem 9rem;
   /* min-height: 100vh; */
   align-items: center;
@@ -25,7 +25,7 @@ body {
 }
 
 #drums{
-  grid-template-columns: 12rem 12rem 12rem;
+  grid-template-columns: 11rem 11rem 11rem;
   align-items: left;
 }
 
@@ -48,7 +48,7 @@ p {
 .key {
   border: .3rem solid rgb(54, 126, 148);
   border-radius: .1rem;
-  margin: 1rem;
+  margin: .8rem;
   font-size: 1.5rem;
   padding: .8rem .5rem;
   transition: all .07s ease;
