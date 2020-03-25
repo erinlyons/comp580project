@@ -1,5 +1,5 @@
 html {
-  font-size: 20px;
+  font-size: 1.5em;
   background-size: cover;
   background-image: url("../background.jpg");
   background-color: rgba(114, 44, 12, 0.877);
@@ -7,22 +7,31 @@ html {
 
 }
 
-body,html {
-  margin: 10px 0;
-  padding: 0 10px;
+body {
+
+  padding: 0 1rem;
   font-family: sans-serif;
 }
 
 .keys {
-  display: flex;
-  flex: 1;
-  min-height: 100vh;
+  /* display: flex;
+  flex: 1; */
+  display: grid;
+  grid-template-columns: 10rem 10rem 10rem 10rem;
+  grid-template-rows: 10rem 10rem 10rem;
+  /* min-height: 100vh; */
   align-items: center;
   justify-content: center;
 }
 
+#drums{
+  grid-template-columns: 10rem 10rem 10rem;
+  align-items: left;
+}
+
 .section {
   align-items: center;
+  margin-top: 1em;
   text-align: center;
   border-radius: 0px;  
 }
@@ -32,23 +41,27 @@ body,html {
 }
 
 .key {
-  border: .4rem solid black;
-  border-radius: .5rem;
+  border: .4rem solid rgb(54, 126, 148);
+  border-radius: .1rem;
   margin: 1rem;
   font-size: 1.5rem;
   padding: 1rem .5rem;
   transition: all .07s ease;
-  width: 10rem;
+  /* width: 10rem; */
   text-align: center;
-  color: white;
-  background: rgba(0,0,0,0.4);
-  text-shadow: 0 0 .5rem black;
+  color: rgb(0, 0, 0);
+  background: rgba(200, 247, 255, 0.884);
+  /* text-shadow: 0 0 .5rem rgb(0, 13, 73); */
 }
 
 .playing {
   transform: scale(1.1);
   border-color: #ffc600;
   box-shadow: 0 0 1rem #ffc600;
+}
+
+.subtitle {
+  color:#272846;
 }
 
 kbd {
@@ -60,7 +73,7 @@ kbd {
   font-size: 1.2rem;
   text-transform: uppercase;
   letter-spacing: .1rem;
-  color: #ffc600;
+  color: #702900;
 }
 
 /* h2 {
@@ -73,27 +86,28 @@ button {
   border: none;
   color: white;
   cursor: pointer;
-  font-size: 25px;
-  margin: 0 15px;
-  padding: 15px 30px;
+  font-size: 1.3em;
+  margin: 0 .8em;
+  padding: 1em 1.5em;
   text-align: center;
   text-decoration: none;
 }
 
 .return_button{
-  background-color: #ad2300;
-  margin: 0 5px;
-  padding: 10px 20px;
+  background-color: #802900;
+  font-size: 1em;
+  margin: 0;
+  padding: .5em 1em;
 }
 
 .return{
   text-align: left;
-  margin-bottom: 20px;
+  /* margin-bottom: 1em; */
 }
 
 a.instrument{
   padding:0;
-  margin: 10px;
+  margin: .5em;
 }
 
 a.instrument>button{
