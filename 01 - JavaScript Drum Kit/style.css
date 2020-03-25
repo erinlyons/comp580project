@@ -90,3 +90,13 @@ button {
   text-align: left;
   margin-bottom: 20px;
 }
+
+a.instrument{
+  padding:0;
+  margin: 10px;
+}
+
+a.instrument>button{
+  width:100%;
+  margin:0;
+}
