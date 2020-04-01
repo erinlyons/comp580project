@@ -1,4 +1,8 @@
+
+
+//have not started yet
 // allow us to easily wait for speech
+
 function say(s) {
     let msg = new SpeechSynthesisUtterance(s);
     return new Promise(resolve => {
