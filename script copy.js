@@ -13,44 +13,32 @@ function say(s) {
   
   function play(path) {
     
-    return new Promise(resolve => {
-      let sound = new Howl({
-        src: [path]
-      });
-      sound.once('end', resolve);
-      sound.play();
-    });
+    
+
+      var a = new Audio(path); 
+      a.play();
+    
     
   }
   function stop(path) {
-    return new Promise(resolve => {
-      let sound = new Howl({
-        src: [path]
-      });
-      sound.once('end', resolve);
-      sound.pause();
-      
-    });
-  }
-  //  shuffles the  answer choices
-  function shuffle(a) {
-      var j, x, i;
-      for (i = a.length - 1; i > 0; i--) {
-          j = Math.floor(Math.random() * (i + 1));
-          x = a[i];
-          a[i] = a[j];
-          a[j] = x;
-      }
-      return a;
+    var sound = new Audio(path);
+
+  sound.pause();
+  sound.currentTime = 0;
   }
   
+
+  
   var Notes = ['C', 'Cs', 'D', 'Ds', 'E', 'F', 'Fs','G','Gs','A','As','B'];
-  var playlist = ['tonejs-instruments/samples/cello/C3.wav', 'tonejs-instruments/samples/cello/Cs3.wav', 'tonejs-instruments/samples/cello/D3.wav', 'tonejs-instruments/samples/cello/Ds3.wav', 'tonejs-instruments/samples/cello/E3.wav', 'tonejs-instruments/samples/cello/F3.wav', 'tonejs-instruments/samples/cello/Fs3.wav'
-  ,'tonejs-instruments/samples/cello/G3.wav','tonejs-instruments/samples/cello/Gs3.wav','tonejs-instruments/samples/cello/A3.wav','tonejs-instruments/samples/cello/As3.wav','tonejs-instruments/samples/cello/B3.wav'];
+  var sounds;
+  var playlist = [new Audio('tonejs-instruments/samples/cello/C3.wav'), new Audio('tonejs-instruments/samples/cello/Cs3.wav'), new Audio('tonejs-instruments/samples/cello/D3.wav'), 
+  new Audio('tonejs-instruments/samples/cello/Ds3.wav'), new Audio('tonejs-instruments/samples/cello/E3.wav'), new Audio('tonejs-instruments/samples/cello/F3.wav'), new Audio('tonejs-instruments/samples/cello/Fs3.wav')
+  ,new Audio('tonejs-instruments/samples/cello/G3.wav'),new Audio('tonejs-instruments/samples/cello/Gs3.wav'),new Audio('tonejs-instruments/samples/cello/A3.wav'),new Audio('tonejs-instruments/samples/cello/As3.wav'),new Audio('tonejs-instruments/samples/cello/B3.wav')];
   //var soundEffect=
   console.log(Notes);
   
   var Answers = "";
+  var Path = "";
  // var SoundAnswer="";
   //let Target ="";
   
@@ -63,13 +51,19 @@ function say(s) {
     //let SoundTarget = playlist[random];
    //console.log(SoundTarget);
     Answers = Notes;
+    Path= playlist;
+    
     //console.log(Target, Answers);
     //Answsers = Answers;
     //console.log(SoundAnswer);
     Answers = Answers.slice(0, 12);
+    Path= Path.slice(0, 12);
+    
     //console.log(Answers);
   // Answers.push(Answers);
   console.log('answers', Answers);
+  console.log('sound', Path);
+  
   AnswerList();
   await say("Welcome to the Cello page!");
  // await say("Click on the right arrow key to hear the notes name and click the enter key  to play the note! Have fun!");
@@ -92,118 +86,27 @@ function say(s) {
      cs = (cs + 1) % Answers.length;
     console.log(cs, Answers[cs]);
   await say('Note ' + Answers[cs]);
-  
-  
-  
-  }
-  async function playnote()
-{
-  //cs = (cs + 1) % Answers.length;
-  console.log(cs, Answers[cs]);
-  
-  if (Answers[cs]=="C")
-  {
-    await play('tonejs-instruments/samples/cello/C3.wav');
-    //await stop('tonejs-instruments/samples/cello/C3.wav')
-  }
-  else if (Answers[cs]=="Cs")
-  {
-    await play('tonejs-instruments/samples/cello/Cs3.wav');
-  }
-  else if (Answers[cs]=="D")
-  {
-    await play('tonejs-instruments/samples/cello/D3.wav');
-  }else if (Answers[cs]=="Ds")
-  {
-    await play('tonejs-instruments/samples/cello/Ds3.mp3');
-  }else if (Answers[cs]=="E")
-  {
-    await play('tonejs-instruments/samples/cello/E3.wav');
-  }else if (Answers[cs]=="F")
-  {
-    await play('tonejs-instruments/samples/cello/F3.wav');
-  }else if (Answers[cs]=="Fs")
-  {
-    await play('tonejs-instruments/samples/cello/Fs3.wav');
-  }
-  else if (Answers[cs]=="G")
-  {
-    await play('tonejs-instruments/samples/cello/G3.wav');
-  }
-  else if (Answers[cs]=="Gs")
-  {
-    await play('tonejs-instruments/samples/cello/Gs3.wav');
-  }
-  else if (Answers[cs]=="A")
-  {
-    await play('tonejs-instruments/samples/cello/A3.wav');
-  }
-  else if (Answers[cs]=="As")
-  {
-    await play('tonejs-instruments/samples/cello/As3.wav');
-  }
-  else if (Answers[cs]=="B")
-  {
-    await play('tonejs-instruments/samples/cello/B3.wav');
+  //console.log("note",Path[cs]);
+
   }
   
-}
 
 
-async function stopnote()
+
+  
+
+
+
+function startAnatural()
 {
-  //cs = (cs + 1) % Answers.length;
-  console.log(cs, Answers[cs]);
   
-  if (Answers[cs]=="C")
-  {
-    await stop('tonejs-instruments/samples/cello/C3.wav');
-  }
-  else if (Answers[cs]=="Cs")
-  {
-    await play('tonejs-instruments/samples/cello/Cs3.wav');
-  }
-  else if (Answers[cs]=="D")
-  {
-    await play('tonejs-instruments/samples/cello/D3.wav');
-  }else if (Answers[cs]=="Ds")
-  {
-    await play('tonejs-instruments/samples/cello/Ds3.mp3');
-  }else if (Answers[cs]=="E")
-  {
-    await play('tonejs-instruments/samples/cello/E3.wav');
-  }else if (Answers[cs]=="F")
-  {
-    await play('tonejs-instruments/samples/cello/F3.wav');
-  }else if (Answers[cs]=="Fs")
-  {
-    await play('tonejs-instruments/samples/cello/Fs3.wav');
-  }
-  else if (Answers[cs]=="G")
-  {
-    await play('tonejs-instruments/samples/cello/G3.wav');
-  }
-  else if (Answers[cs]=="Gs")
-  {
-    await play('tonejs-instruments/samples/cello/Gs3.wav');
-  }
-  else if (Answers[cs]=="A")
-  {
-    await play('tonejs-instruments/samples/cello/A3.wav');
-  }
-  else if (Answers[cs]=="As")
-  {
-    await play('tonejs-instruments/samples/cello/As3.wav');
-  }
-  else if (Answers[cs]=="B")
-  {
-    await stop('tonejs-instruments/samples/cello/B3.wav');
-  }
-  
+  Path[cs].play();
 }
-  
-  
-  
+
+function stopAnatural(){
+  Path[cs].pause();
+  Path[cs].currentTime = 0;
+}
   
   
   function AnswerList()
@@ -226,32 +129,36 @@ async function stopnote()
   
   
   
-  
-  document.addEventListener('keydown', event => {
-    console.log('kd', event);
-    if (event.key == 'ArrowRight') {
-      nextChoice();
-    } else if (event.key == 'ArrowLeft')
+
+  document.onkeydown = function(e){
+    e = e || window.event;
+    var key = e.which || e.keyCode;
+    if(key===13)
     {
-      AnswerSelected();
+      startAnatural();
     }
-    else if (event.key == 'Enter')
-  {
-    playnote();
+    if(key===39)
+    {
+        nextChoice();
+    }
+};
+
+document.onkeyup = function(e){
+    e = e || window.event;
+    var key = e.which || e.keyCode;
+    if(key===13){
+        stopAnatural();
+    }
+
+};
   
-  }
-  else if (event.keyCode == '32')
-  {
-      window.location.href = "guitar.html";
-  }
-  });
-  document.addEventListener('keyup', event => {
-    console.log('ku', event);
-    
-  if (event.key == 'Enter')
-  {
-    stopnote();
+ 
   
-  }
+
   
-  });
+
+  
+  
+  
+
+ 

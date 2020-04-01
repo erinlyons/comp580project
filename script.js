@@ -178,3 +178,7 @@ function say(s) {
       window.location.href = "guitar.html";
   }
   });
+
+
+
+  
