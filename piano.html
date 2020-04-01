@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Piano</title>
+  <link rel="stylesheet" href="01 - JavaScript Drum Kit/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,800,900&display=swap" rel="stylesheet" type="text/css">
+  <script src="script piano.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.9/howler.min.js"></script>
+
+</head>
+<style>
+html {
+  font-size: 1.5em;
+  background-size: cover;
+  background-image: url("../background.jpg");
+  background-color: rgba(114, 44, 12, 0.877);
+  background-blend-mode: soft-light;
+
+}
+body
+ {
+  padding: 0 1rem;
+  font-family: 'Montserrat', sans-serif;
+}
+.key {
+  border: .3rem solid rgb(54, 126, 148);
+  border-radius: .1rem;
+  margin: .8rem;
+  font-size: 1.5rem;
+  padding: .8rem .5rem;
+  transition: all .07s ease;
+  /* width: 10rem; */
+  text-align: center;
+  color: rgb(0, 0, 0);
+  background: rgba(200, 247, 255, 0.884);
+  /* text-shadow: 0 0 .5rem rgb(0, 13, 73); */
+}
+
+button {
+  color: rgb(7, 7, 7);
+  background:rgba(200, 247, 255, 0.884);
+  border: none;
+  
+  
+  cursor: pointer;
+  font-size: 1.35em;
+  
+  margin: 0.1em;
+  padding: .8em 1.2em;
+  transition: all .07s ease;
+  text-align: center;
+  text-decoration-line: overline underline;
+  text-decoration-style: solid;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+</style>
+
+<body onload="load()">
+
+  <div class="return">
+    <a href="index.html"><button class= "return_button light">Back to Home</button></a>
+    <a href="instruments.html"><button class= "return_button light">Back to Instrument Select</button></a>
+  </div>
+  
+    <div class="keys">
+        
+        <div class="key"> 
+
+            <button class="button" onkeydown="AnswerList()" id="option1">Note C</button>
+           </div>
+          <div class="key">
+            <button class="button"  onkeydown="AnswerList()" id="option2">Note CS</button>
+          </div>
+          <div class="key">
+            <button class="button"  onkeydown="AnswerList()" id="option3">Note D</button>
+          </div>
+          <div class="key">
+            <button class="button"  onkeydown="AnswerList()" id="option4">Note DS</button>
+          </div>
+          <div class="key">
+            <button class="button"  onkeydown="AnswerList()" id="option5">Note E</button>
+          </div>
+          <div class="key">
+            <button class="button"  onkeydown="AnswerList()" id="option6">Note F</button>
+          </div>
+          <div class="key">
+            <button class="button"  onkeydown="AnswerList()" id="option7">Note FS</button>
+          </div>
+          <div class="key">
+            <button class="button"  onkeydown="AnswerList()" id="option8">Note G</button>
+          </div>
+          <div class="key">
+            <button class="button"  onkeydown="AnswerList()" id="option9">Note GS</button>
+          </div>
+          <div class="key">
+            <button class="button"  onkeydown="AnswerList()" id="option10">Note A</button>
+          </div>
+          <div class="key">
+            <button class="button"  onkeydown="AnswerList()" id="option11">Note AS </button>
+          </div>
+          <div class="key">
+            <button class="button"  onkeydown="AnswerList()" id="option12">Note B </button>
+          </div>
+         
+         </div>
+         
+    <div>
+  
+ 
+  </body>
+</body>
+</html>
