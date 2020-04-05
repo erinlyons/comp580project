@@ -161,6 +161,9 @@ function stopAnatural(){
     {
       previous();
     }
+    if(key === 8) {
+        document.getElementById("return").click(); 
+    }
 };
 
 document.onkeyup = function(e){

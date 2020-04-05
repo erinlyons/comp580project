@@ -161,6 +161,9 @@ document.onkeydown = function(e){
   {
     previous();
   }
+  if (key===8){
+    document.getElementById("return").click(); 
+  }
 };
 
 document.onkeyup = function(e){
