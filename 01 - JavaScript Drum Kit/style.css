@@ -122,3 +122,12 @@ a.instrument>button{
   width:100%;
   margin:0;
 }
+
+#logo {
+  height: 200px;
+  position: absolute;
+  right: 1em;
+  padding: 10px;
+  bottom: .5em;
+  box-sizing: border-box;
+}
