@@ -125,9 +125,21 @@ a.instrument>button{
 
 #logo {
   height: 200px;
-  position: absolute;
+  position: fixed;
   right: 1em;
   padding: 10px;
   bottom: .5em;
   box-sizing: border-box;
+}
+
+h3{
+  color: #272846;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: .2rem;
+  margin-top:2.2rem;
+}
+
+#instruct{
+  font-weight:400;
 }
