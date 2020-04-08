@@ -26,11 +26,39 @@
         </div>
         <script src = "https://code.jquery.com/jquery-3.4.1.min.js"> </script>
     <script>
-        document.addEventListener('keydown', event => {
-                if (event.keyCode == 8) {
-                    document.getElementById("return").click(); 
-                }
+        var Pages = ['drum', 'guitar', 'cello', 'piano'];
+        let cs = -1;
+        let c = 0;
+        
+        function say(s) {
+            let msg = new SpeechSynthesisUtterance(s);
+            return new Promise(resolve => {
+            msg.lang = 'en-US';
+            speechSynthesis.speak(msg);
             });
+        }
+        
+        async function nextChoice() {
+            cs = (cs + 1) % Pages.length;
+            await say(Pages[cs]);
+        }
+
+        async function previous() {
+            c = cs;
+            c--;
+            if (c < 0) {
+                c=0; }
+            cs=c;
+            await say(Pages[c]);
+        }
+
+        document.addEventListener('keydown', event => {
+            if(event.keyCode===39) { nextChoice(); }
+            else if(event.keyCode===37) { previous();}    
+            else if (event.keyCode == 8) {
+                document.getElementById("return").click(); 
+            }
+        });
     </script>
     </body>
 </html>
