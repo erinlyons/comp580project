@@ -10,9 +10,9 @@
   <img id = "logo" src="../jamdrum2.png" alt="Jam game logo">
 
   <div class="return">
-    <a href="../index.html"><button class= "return_button light">Back to Home</button></a>
-    <a href="../instruments.html"><button class= "return_button light">Back to Instrument Select</button></a>
+    <a href="../instruments.html"><button class= "return_button light" id="return">Back to Instrument Select</button></a>
   </div>
+
   <div class="keys" id="drums">
       <div data-key="38" class="key">
           <kbd>Up</kbd>
@@ -69,6 +69,15 @@
   const keys = Array.from(document.querySelectorAll('.key'));
   keys.forEach(key => key.addEventListener('transitionend', removeTransition));
   window.addEventListener('keydown', playSound);
+
+  document.onkeydown = function(e)
+  {
+    e = e || window.event;
+    var key = e.which || e.keyCode;
+    if(key === 8) {
+        document.getElementById("return").click(); 
+    }
+  };
 </script>
 
 

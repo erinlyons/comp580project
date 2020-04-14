@@ -87,7 +87,7 @@ function say(s) {
      cs = (cs + 1) % Answers.length;
     console.log(cs, Answers[cs]);
   await say('Note ' + Answers[cs]);
-  //console.log("note",Path[cs]);
+  console.log("note",Path[cs]);
 
   }
   async function previous()

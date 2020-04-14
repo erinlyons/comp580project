@@ -117,6 +117,7 @@ function startAnatural()
 {
 
 Path[cs].play();
+
 }
 
 function stopAnatural(){
@@ -139,19 +140,27 @@ function AnswerList()
   document.getElementById("option10").innerHTML = Answers[9];
   document.getElementById("option11").innerHTML = Answers[10];
   document.getElementById("option12").innerHTML = Answers[11];
+  
 
   // document.getElementById("score").innerHTML = "Your score is: " + score;
 }
 
 
-
+async function removeTransition(e) 
+  {
+    if (e.propertyName !== 'transform') return;
+     e.target.classList.remove('playing');
+  }
 
 document.onkeydown = function(e){
   e = e || window.event;
   var key = e.which || e.keyCode;
   if(key===13)
   {
+   
     startAnatural();
+    e.classList.add('playing');
+    
   }
   if(key===39)
   {
@@ -171,6 +180,7 @@ document.onkeyup = function(e){
   var key = e.which || e.keyCode;
   if(key===13){
       stopAnatural();
+      document.getElementById("hey").style.borderColor = "rgb(54, 126, 148)";
   }
 
 };

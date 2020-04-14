@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Drums</title>
+  <link rel="stylesheet" href="01 - JavaScript Drum Kit/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,800,900&display=swap" rel="stylesheet" type="text/css">
+  <script src="script Drums.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.9/howler.min.js"></script>
+
+</head>
+<style>
+html {
+  
+  background-size: cover;
+  background-image: url("../background.jpg");
+  background-color: rgba(114, 44, 12, 0.877);
+  background-blend-mode: soft-light;
+
+}
+.column 
+{
+  float: left;
+  width: 28%;
+  padding: 10px;
+  border: .3rem dotted rgb(54, 126, 148);
+  margin: 0.2em;
+ 
+  padding: .8rem .5rem;
+  transition: all .07s ease;
+  /* width: 10rem; */
+  text-align: center;
+  color: rgb(0, 0, 0);
+  background: rgba(200, 247, 255, 0.884);
+ 
+}
+
+
+/* Clear floats after the columns */
+.rows:after 
+{
+  content: "";
+  display: table;
+  clear: both;
+  margin-top: 1em;
+  display: grid;
+  grid-template-columns: 10.5rem 10.5rem 10.5rem 10.5rem;
+  grid-template-rows: 9rem 9rem 9rem;
+  /* min-height: 100vh; */
+  align-items: center;
+  justify-content: center;
+}
+body
+ {
+  padding: 0 1rem;
+  font-family: 'Montserrat', sans-serif;
+}
+button {
+  color: rgb(7, 7, 7);
+  background:rgba(200, 247, 255, 0.884);
+  border: none;
+  
+  
+  cursor: pointer;
+  font-size: 1.35em;
+  
+  margin: 0.1em;
+  padding: .9em .9em;
+  transition: all .07s ease;
+  text-align: center;
+  text-decoration-line: overline underline;
+  text-decoration-style: solid;
+  font-family: 'Montserrat', sans-serif;
+}
+kbd {
+  display: block;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  text-decoration-line: none;
+  text-decoration-style: solid;
+  color: #702900;
+}
+</style>
+
+<body>
+  <img id = "logo" src="jamdrum2.png" alt="Jam game logo">
+
+  <div class="return">
+    <a href="instruments.html"><button class= "return_button light" id = "return">Back to Instrument Select</button></a>
+  </div>
+  <br>
+    <div class="rows">
+        
+        <div data-key="38" class="column"> 
+            <h2 >
+                
+                <button class="button"  onkeydown="AnswerList()" id="option2">TINK</button>
+                <kbd>Up</kbd>
+                
+            </h2>
+            
+           </div>
+          <div data-key="40" class="column">
+              <h2>
+                <button class="button"  onkeydown="AnswerList()" id="option2">HIHAT</button>
+                <kbd>Down</kbd>
+              </h2>
+          </div>
+          <div data-key="39" class="column">
+              <h2>
+                  <button class="button"  onkeydown="AnswerList()" id="option3">KICK</button>
+                  <kbd>Right</kbd>
+              </h2>
+          </div>
+          <div data-key="37" class="column">   
+            <h2>
+              <button class="button"  onkeydown="AnswerList()" id="option4">OPENHAT</button>
+              <kbd>Left</kbd>
+            </h2>
+          </div>
+           <div data-key="32" class="column">
+             <h2>
+                <button class="button"  onkeydown="AnswerList()" id="option5">BOOM</button>
+                <kbd>Space</kbd>
+             </h2>
+            </div>
+            <div data-key="13" class="column">
+              <h2>
+                <button class="button"  onkeydown="AnswerList()" id="option6">SNARE</button>
+                <kbd>Enter</kbd>
+              </h2>
+            </div> 
+    <div>
+        <audio data-key="38" src="sounds/tink.wav"></audio>
+        <audio data-key="40" src="sounds/hihat.wav"></audio>
+        <audio data-key="39" src="sounds/kick.wav"></audio>
+        <audio data-key="37" src="sounds/openhat.wav"></audio>
+        <audio data-key="32" src="sounds/boom.wav"></audio>
+        <audio data-key="13" src="sounds/snare.wav"></audio>
+        <audio data-key="74" src="sounds/snare.wav"></audio>
+        <audio data-key="75" src="sounds/tom.wav"></audio>
+        <audio data-key="76" src="sounds/tink.wav"></audio>
+      
+<script>
+  function say(s) {
+    let msg = new SpeechSynthesisUtterance(s);
+    return new Promise(resolve => {
+      msg.lang = 'en-US';
+      msg.onend = (event) => {
+        console.log(10); resolve('done');}
+      speechSynthesis.speak(msg);
+    });
+  }
+ // var SoundAnswer="";
+  //let Target ="";
+  
+ 
+    
+  say("Welcome to the Drums page! Use the arrow keys, space keys and Enter key to play the Drums");
+
+  //AnswerList();
+  
+ // await say("Click on the right arrow key to hear the notes name and click the enter key  to play the note! Have fun!");
+ // await say("Welcome to the Cello page!");
+ // await say("Click on the right arrow key to hear the notes name and click the enter key  to play the note! Have fun!");
+  
+  //await  play(SoundTarget);
+
+  async function removeTransition(e) 
+  {
+    if (e.propertyName !== 'transform') return;
+     e.target.classList.remove('playing');
+  }
+
+ async function playSound(e) 
+ {
+   const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+   const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+   if (!audio) return;
+
+   key.classList.add('playing');
+   audio.currentTime = 0;
+   audio.play();
+ }
+
+ const keys = Array.from(document.querySelectorAll('.column'));
+ keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+ window.addEventListener('keydown', playSound);
+
+document.onkeydown = function(e)
+ {
+   e = e || window.event;
+   var key = e.which || e.keyCode;
+   if(key === 8) {
+       document.getElementById("return").click(); 
+   }
+ };
+</script>        
+    
+
+          
+
+
+        
+</body>
+</html>
