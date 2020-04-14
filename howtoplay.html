@@ -12,12 +12,18 @@
     <body>
 
         <script>
-            var msg1 = new SpeechSynthesisUtterance();
-            var msg = new SpeechSynthesisUtterance();
-            msg1.text= 'Rules of the Game!';
-            msg.text= 'You are going to be using the keyboard to Jam out to your favorite instrument. Press SPACEBAR to hear how to select your instrument. Press ENTER to hear how to play your instrument.';
-            window.speechSynthesis.speak(msg1);
-            window.speechSynthesis.speak(msg);
+        
+        function say(s) {
+        let msg = new SpeechSynthesisUtterance(s);
+        return new Promise(resolve => {
+        msg.lang = 'en-US';
+        msg.onend = (event) => {
+        console.log(3); resolve('done');}
+        speechSynthesis.resume();
+        speechSynthesis.speak(msg);});
+         }
+          say('Rules of the Game!');
+          say('You are going to be using the keyboard to Jam out to your favorite instrument. Press SPACEBAR to hear how to select your instrument. Press ENTER to hear how to play your instrument.');
         </script>
 
         <div class="section box">
@@ -41,11 +47,16 @@
         document.addEventListener('keydown', event => {
             if (event.keyCode == 8) {
                 document.getElementById("return").click(); 
+                speechSynthesis.cancel();
             } if (event.keyCode == 32) {
                 event.preventDefault();
-                window.speechSynthesis.speak(select);
+                
+                speechSynthesis.speak(select);
+                ;
             } if (event.keyCode == 13) {
-                window.speechSynthesis.speak(playInstrument);
+                
+            speechSynthesis.speak(playInstrument);
+                
             }
         });
     </script>

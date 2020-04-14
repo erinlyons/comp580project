@@ -35,10 +35,11 @@
             let msg = new SpeechSynthesisUtterance(s);
             return new Promise(resolve => {
             msg.lang = 'en-US';
+            speechSynthesis.resume();
             speechSynthesis.speak(msg);
             });
         }
-        
+        say("Select your instrument to jam out!");
         async function nextChoice() {
             cs = (cs + 1) % Pages.length;
             await say(Pages[cs]);
@@ -66,9 +67,11 @@
             else if(event.keyCode===37) { previous();}    
             else if (event.keyCode == 8) {
                 document.getElementById("return").click(); 
+                speechSynthesis.cancel();
             }
             else if (event.keyCode === 13) {
                 links[cs].click(); 
+                speechSynthesis.cancel();
             }
         });
     </script>

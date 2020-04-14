@@ -10,6 +10,7 @@
 
 </head>
 <style>
+
 html {
   font-size: 1.5em;
   background-size: cover;
@@ -24,10 +25,12 @@ body
   font-family: 'Montserrat', sans-serif;
 }
 .key {
-  border: .3rem solid rgb(54, 126, 148);
-  border-radius: .1rem;
-  margin: .8rem;
-  font-size: 1.5rem;
+  float: left;
+  width: 20%;
+  padding: 10px;
+  border: .3rem dotted rgb(54, 126, 148);
+  margin: 0.2em;
+ 
   padding: .8rem .5rem;
   transition: all .07s ease;
   /* width: 10rem; */
@@ -35,6 +38,20 @@ body
   color: rgb(0, 0, 0);
   background: rgba(200, 247, 255, 0.884);
   /* text-shadow: 0 0 .5rem rgb(0, 13, 73); */
+}
+
+.row:after 
+{
+  content: "";
+  display: table;
+  clear: both;
+  margin-top: 1em;
+  display: grid;
+  grid-template-columns: 10.5rem 10.5rem 10.5rem 10.5rem;
+  grid-template-rows: 9rem 9rem 9rem;
+  /* min-height: 100vh; */
+  align-items: center;
+  justify-content: center;
 }
 
 button {
@@ -56,6 +73,10 @@ button {
 }
 
 
+
+</style>
+
+
 </style>
 
 <body onload="load()">
@@ -65,7 +86,7 @@ button {
     <a href="instruments.html"><button class= "return_button light" id = "return">Back to Instrument Select</button></a>
   </div>
   
-    <div class="keys">
+    <div class="row">
         
         <div class="key"> 
 
