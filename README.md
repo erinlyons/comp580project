@@ -2,4 +2,4 @@
 
 
 
-Link to demo: https://erinlyons.github.io/comp580project/
+Link to demo: https://erinlyons.github.io/comp580project/index.html
