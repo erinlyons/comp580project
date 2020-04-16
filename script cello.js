@@ -65,10 +65,7 @@ async function load() {
   console.log('sound', Path);
 
   AnswerList();
-  await say("Welcome to the Cello page!");
-  // await say("Click on the right arrow key to hear the notes name and click the enter key  to play the note! Have fun!");
-  // await say("Welcome to the Cello page!");
-  // await say("Click on the right arrow key to hear the notes name and click the enter key  to play the note! Have fun!");
+  await say("Welcome to the cello page! Use the arrow keys to scroll through the notes in the scale. Click enter to hear the note name and click the space bar to play the note! Press the right arrow to begin.");
 
   //await  play(SoundTarget);
 
@@ -84,9 +81,9 @@ var c = 0;
 
 async function nextChoice() {
   cs = (cs + 1) % Answers.length;
-  console.log(cs, Answers[cs]);
-  await say('Note ' + Answers[cs]);
-  console.log("note", Path[cs]);
+  //console.log(cs, Answers[cs]);
+  //await say('Note ' + Answers[cs]);
+  //console.log("note", Path[cs]);
 
 }
 async function previous() {
@@ -97,9 +94,9 @@ async function previous() {
     c = 0;
   }
   cs = c;
-  console.log(c, Answers[c]);
-  await say('Note ' + Answers[c]);
-  console.log("note", Path[cs]);
+  //console.log(c, Answers[c]);
+  //await say('Note ' + Answers[c]);
+  //console.log("note", Path[cs]);
 
 }
 
@@ -143,8 +140,12 @@ function AnswerList() {
 document.onkeydown = function (e) {
   e = e || window.event;
   var key = e.which || e.keyCode;
-  if (key === 13) {
+  if (key === 32) {
+    e.preventDefault();
     startAnatural();
+  }
+  if (key===13) {
+    say("Note " + Answers[cs]);
   }
   if (key === 39) {
     nextChoice();
@@ -160,7 +161,7 @@ document.onkeydown = function (e) {
 document.onkeyup = function (e) {
   e = e || window.event;
   var key = e.which || e.keyCode;
-  if (key === 13) {
+  if (key === 32) {
     stopAnatural();
   }
 
