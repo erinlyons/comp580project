@@ -16,7 +16,7 @@ function say(s)
   
  
   say("Welcome to the Jam Session");
-  say("The game will give people a way to play different instruments and manipulate the sounds/pitch without having any musical training. People can play different instruments together and have jam sessions.");
+  say("This game will give you a chance to play your favorite instruments and learn the notes in the scale in the most fun and easy way. Have fun and make some music!");
   say("Press ENTER to learn how to play. Press SPACE to start game.");
 
   
