@@ -65,7 +65,7 @@ console.log('answers', Answers);
 console.log('sound', Path);
 
 AnswerList();
-await say("Welcome to the Guitar page! Click on the right arrow key to scroll through the notes in the scale. Click enter to hear the note name and click the space bar to play the note! Have fun!");
+await say("Welcome to the Guitar page! Click on the arrow keys to scroll through the notes in the scale. Click enter to hear the note name and click the space bar to play the note! Press the right arrow to begin.");
 // await say("Welcome to the Cello page!");
 // await say("Click on the right arrow key to hear the notes name and click the enter key  to play the note! Have fun!");
 
@@ -166,7 +166,7 @@ document.onkeydown = function(e){
       nextChoice();
   }
   if(key===13){
-    say("Note" + Answers[cs]);
+    say("Note " + Answers[cs]);
   }
   if(key===37)
   {
