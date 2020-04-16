@@ -66,7 +66,7 @@ console.log('sound', Path);
 
 AnswerList();
 await say("Welcome to the Guitar page!");
-// await say("Click on the right arrow key to hear the notes name and click the enter key  to play the note! Have fun!");
+await say("Click on the right arrow key to scroll through the notes in the scale. Click enter to hear the note name and click the space bar to play the note! Have fun!");
 // await say("Welcome to the Cello page!");
 // await say("Click on the right arrow key to hear the notes name and click the enter key  to play the note! Have fun!");
 
@@ -86,7 +86,7 @@ async function nextChoice()
  {
    cs = (cs + 1) % Answers.length;
   console.log(cs, Answers[cs]);
-await say('Note ' + Answers[cs]);
+//await say('Note ' + Answers[cs]);
 //console.log("note",Path[cs]);
 
 }
@@ -101,7 +101,7 @@ async function previous()
    }
    cs=c;
   console.log(c, Answers[c]);
-await say('Note ' + Answers[c]);
+//await say('Note ' + Answers[c]);
 console.log("note",Path[cs]);
 
 }
@@ -155,9 +155,9 @@ async function removeTransition(e)
 document.onkeydown = function(e){
   e = e || window.event;
   var key = e.which || e.keyCode;
-  if(key===13)
+  if(key===32)
   {
-   
+    e.preventDefault();
     startAnatural();
     e.classList.add('playing');
     
@@ -165,6 +165,9 @@ document.onkeydown = function(e){
   if(key===39)
   {
       nextChoice();
+  }
+  if(key===13){
+    say("Note" + Answers[cs]);
   }
   if(key===37)
   {
@@ -178,7 +181,7 @@ document.onkeydown = function(e){
 document.onkeyup = function(e){
   e = e || window.event;
   var key = e.which || e.keyCode;
-  if(key===13){
+  if(key===32){
       stopAnatural();
       document.getElementById("hey").style.borderColor = "rgb(54, 126, 148)";
   }
