@@ -39,7 +39,7 @@
             speechSynthesis.speak(msg);
             });
         }
-        say("Select your instrument to jam out!");
+        say("Select your instrument to jam out! Use the arrow keys to scroll through the different options and press enter to choose your instrument. Use backspace to return to the homepage.");
         async function nextChoice() {
             cs = (cs + 1) % Pages.length;
             await say(Pages[cs]);
