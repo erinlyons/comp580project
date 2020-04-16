@@ -65,8 +65,7 @@ console.log('answers', Answers);
 console.log('sound', Path);
 
 AnswerList();
-await say("Welcome to the Guitar page!");
-await say("Click on the right arrow key to scroll through the notes in the scale. Click enter to hear the note name and click the space bar to play the note! Have fun!");
+await say("Welcome to the Guitar page! Click on the right arrow key to scroll through the notes in the scale. Click enter to hear the note name and click the space bar to play the note! Have fun!");
 // await say("Welcome to the Cello page!");
 // await say("Click on the right arrow key to hear the notes name and click the enter key  to play the note! Have fun!");
 
