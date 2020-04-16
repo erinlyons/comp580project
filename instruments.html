@@ -26,7 +26,7 @@
         </div>
         <script src = "https://code.jquery.com/jquery-3.4.1.min.js"> </script>
     <script>
-        var Pages = ['drum', 'guitar', 'cello', 'piano'];
+        var Pages = ['drums', 'guitar', 'cello', 'piano'];
         var links= [document.getElementById("option1"),document.getElementById("option2"),document.getElementById("option3"),document.getElementById("option4")];
         let cs = -1;
         let c = 0;
@@ -39,7 +39,7 @@
             speechSynthesis.speak(msg);
             });
         }
-        say("Select your instrument to jam out! Use the arrow keys to scroll through the different options and press enter to choose your instrument. Use backspace to return to the homepage.");
+        say("Select your instrument to jam out! Use the left and right arrow keys to scroll through the different options and press enter to choose your instrument. Use backspace to return to the homepage.");
         async function nextChoice() {
             cs = (cs + 1) % Pages.length;
             await say(Pages[cs]);

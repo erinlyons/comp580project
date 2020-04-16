@@ -65,7 +65,7 @@ async function load() {
   console.log('sound', Path);
 
   AnswerList();
-  await say("Welcome to the cello page! Use the arrow keys to scroll through the notes in the scale. Click enter to hear the note name and click the space bar to play the note! Press the right arrow to begin.");
+  await say("Welcome to the cello page! Use the left and right arrow keys to scroll through the notes in the scale. Click enter to hear the note name and click the space bar to play the note sound! Press the right arrow to begin.");
 
   //await  play(SoundTarget);
 
