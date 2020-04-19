@@ -165,7 +165,8 @@ function stopAnatural(){
       say("Note " + Answers[cs]);
     }
     if(key === 8) {
-        document.getElementById("return").click(); 
+      speechSynthesis.cancel();
+      document.getElementById("return").click(); 
     }
 };
 

@@ -173,6 +173,7 @@ document.onkeydown = function(e){
     previous();
   }
   if (key===8){
+    speechSynthesis.cancel();
     document.getElementById("return").click(); 
   }
 };
