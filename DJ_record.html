@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DJ</title>
+  <link rel="stylesheet" href="01 - JavaScript Drum Kit/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,800,900&display=swap" rel="stylesheet" type="text/css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.9/howler.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script></head>
+  
+  <style>
+    html {
+      font-size: 1.5em;
+      background-size: cover;
+      /* background-image: url("../background.jpg"); */
+      background-color: rgba(114, 44, 12, 0.877);
+      background-blend-mode: soft-light;
+    
+    }
+    body
+     {
+      padding: 0 1rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .key {
+      float: left;
+      width: 28%;
+      padding: 10px;
+      border: .3rem dotted rgb(54, 126, 148);
+      margin: 0.2em;
+     
+      padding: .8rem .5rem;
+      transition: all .07s ease;
+      /* width: 10rem; */
+      text-align: center;
+      color: rgb(0, 0, 0);
+      background: rgba(200, 247, 255, 0.884);
+      /* text-shadow: 0 0 .5rem rgb(0, 13, 73); */
+    }
+    
+    .row:after 
+    {
+      content: "";
+      display: table;
+      clear: both;
+      margin-top: 1em;
+      display: grid;
+      grid-template-columns: 10.5rem 10.5rem 10.5rem 10.5rem;
+      grid-template-rows: 9rem 9rem 9rem;
+      /* min-height: 100vh; */
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .button {
+      color: rgb(7, 7, 7);
+      background:rgba(200, 247, 255, 0.884);
+      border: none;
+      
+      
+      cursor: pointer;
+      font-size: 1.35em;
+      
+      margin: 0.1em;
+      padding: .9em .8em;
+      transition: all .07s ease;
+      text-align: center;
+      text-decoration-line: overline underline;
+      text-decoration-style: solid;
+      font-family: 'Montserrat', sans-serif;
+    }
+    
+    
+    
+    </style>
+
+<body onload="load()">
+  <img id = "logo" src="jamdrum2.png" alt="Jam game logo">
+
+  <div class="return">
+    <a href="instruments.html"><button class= "return_button light" id = "return">Back to Instrument Select</button></a>
+  </div>
+
+    <div class="row">
+        
+      <div class="key"> 
+        <h2>
+        <button class="button" onkeydown="AnswerList()" id="option1">Note C</button>
+      </h2>
+      </div>
+      <div class="key">
+          <h2>
+        <button class="button"  onkeydown="AnswerList()" id="option2">Note CS</button>
+          </h2>
+      </div>
+      <div class="key">
+          <h2>
+        <button class="button"  onkeydown="AnswerList()" id="option3">Note D</button>
+          </h2>
+      </div>
+      <div class="key">
+          <h2>
+        <button class="button"  onkeydown="AnswerList()" id="option4">Note DS</button>
+          </h2>
+      </div>
+      <div class="key">
+          <h2>
+        <button class="button"  onkeydown="AnswerList()" id="option5">Note E</button>
+          </h2>
+      </div>
+      <div class="key">
+          <h2>
+        <button class="button"  onkeydown="AnswerList()" id="option6">Note F</button>
+          </h2>
+      </div>
+      <div class="key">
+        <h2>
+        <button class="button"  onkeydown="AnswerList()" id="option7">Note FS</button>
+        </h2>
+      </div>
+      <div class="key">
+          <h2>
+        <button class="button"  onkeydown="AnswerList()" id="option8">Note G</button>
+        </h2>
+      </div>
+      <div class="key">
+          <h2>
+        <button class="button"  onkeydown="AnswerList()" id="option9">Note GS</button>
+          </h2>
+      </div>
+      <div class="key">
+          <h2>
+        <button class="button"  onkeydown="AnswerList()" id="option10">SNARE</button>
+          </h2>
+      </div>
+      <div class="key">
+          <h2>
+        <button class="button"  onkeydown="AnswerList()" id="option11">KICK</button>
+        </h2>
+      </div>
+      <div class="key">
+          <h2>
+        <button class="button"  onkeydown="AnswerList()" id="option12">HIHAT</button>
+          </h2>
+      </div>
+    <div>
+      <button id="record_button">Record New</button>
+      <button id="stop_button">Stop</button>
+      <button id="playback_button">Playback</button>
+    </div>
+  
+    </div>
+         
+    
+    <script src="script dj.js"></script>
+
+    
+
+  </body>
+
+
+</html>
