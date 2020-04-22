@@ -15,9 +15,12 @@ function say(s)
   
   
  
-  say("Welcome to the Jam Session");
+  
+     say("Welcome to the Jam Session");
   say("This game will give you a chance to play your favorite instruments and learn the notes in the scale in the most fun and easy way. Have fun and make some music!");
-  say("Press ENTER to learn how to play. Press SPACE to start game.");
+ say("Press ENTER to learn how to play. Press SPACE to start game.");
+  
+ 
 
   
   
