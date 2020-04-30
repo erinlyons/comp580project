@@ -64,8 +64,8 @@
         }
 
         document.addEventListener('keydown', event => {
+            speechSynthesis.cancel();
             if(event.keyCode===39) { 
-                speechSynthesis.cancel();
                 nextChoice(); 
             }
             else if(event.keyCode===37) { 
