@@ -195,6 +195,7 @@ document.onkeydown = function(e)
    e.preventDefault();
    if(key === 8) {
        document.getElementById("return").click(); 
+       speechSynthesis.cancel();
    }
  };
 </script>        
