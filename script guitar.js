@@ -156,6 +156,7 @@ document.onkeydown = function(e){
   var key = e.which || e.keyCode;
   if(key===32)
   {
+    speechSynthesis.cancel();
     e.preventDefault();
     startAnatural();
     e.classList.add('playing');
@@ -163,13 +164,15 @@ document.onkeydown = function(e){
   }
   if(key===39)
   {
-      nextChoice();
+    speechSynthesis.cancel();
+    nextChoice();
   }
   if(key===13){
     say("Note " + Answers[cs]);
   }
   if(key===37)
   {
+    speechSynthesis.cancel();
     previous();
   }
   if (key===8){

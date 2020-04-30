@@ -64,8 +64,13 @@
         }
 
         document.addEventListener('keydown', event => {
-            if(event.keyCode===39) { nextChoice(); }
-            else if(event.keyCode===37) { previous();}    
+            if(event.keyCode===39) { 
+                speechSynthesis.cancel();
+                nextChoice(); 
+            }
+            else if(event.keyCode===37) { 
+               previous();
+            }    
             else if (event.keyCode == 8) {
                 document.getElementById("return").click(); 
                 speechSynthesis.cancel();

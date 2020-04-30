@@ -141,6 +141,7 @@ document.onkeydown = function (e) {
   e = e || window.event;
   var key = e.which || e.keyCode;
   if (key === 32) {
+    speechSynthesis.cancel();
     e.preventDefault();
     startAnatural();
   }
@@ -148,9 +149,11 @@ document.onkeydown = function (e) {
     say("Note " + Answers[cs]);
   }
   if (key === 39) {
+    speechSynthesis.cancel();
     nextChoice();
   }
   if (key === 37) {
+    speechSynthesis.cancel();
     previous();
   }
   if (key === 8) {

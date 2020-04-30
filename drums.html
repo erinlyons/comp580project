@@ -190,12 +190,12 @@ kbd {
 
 document.onkeydown = function(e)
  {
+   speechSynthesis.cancel();
    e = e || window.event;
    var key = e.which || e.keyCode;
    e.preventDefault();
    if(key === 8) {
        document.getElementById("return").click(); 
-       speechSynthesis.cancel();
    }
  };
 </script>        

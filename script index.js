@@ -16,7 +16,7 @@ function say(s)
   
  
   
- say("Welcome to the Jam Session");
+say("Welcome to the Jam Session");
  say("This game will give you a chance to play your favorite instruments and learn the notes in the scale in the most fun and easy way. Have fun and make some music!");
  say("Press ENTER to learn how to play. Press SPACE to start game.");
   
@@ -25,11 +25,15 @@ function say(s)
 
   document.addEventListener('keydown', event => {
     if (event.keyCode == 13) {
-        document.getElementById("Help").click(); 
-        speechSynthesis.cancel();
+      document.getElementById("Help").click(); 
+      speechSynthesis.cancel();
     } else if (event.keyCode == 32) {
-        document.getElementById("Start").click();
-        speechSynthesis.cancel(); 
+      document.getElementById("Start").click();
+      speechSynthesis.cancel(); 
+    } else {
+      say("Welcome to the Jam Session");
+      say("This game will give you a chance to play your favorite instruments and learn the notes in the scale in the most fun and easy way. Have fun and make some music!");
+      say("Press ENTER to learn how to play. Press SPACE to start game.");
     }
 });
   

@@ -150,15 +150,18 @@ function stopAnatural(){
     var key = e.which || e.keyCode;
     if(key===32)
     {
+      speechSynthesis.cancel();
       e.preventDefault();
       startAnatural();
     }
     if(key===39)
     {
-        nextChoice();
+      speechSynthesis.cancel();
+      nextChoice();
     }
     if(key===37)
     {
+      speechSynthesis.cancel();
       previous();
     }
     if(key===13){
