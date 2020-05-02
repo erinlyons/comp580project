@@ -19,16 +19,16 @@
             <div class = "columns">
                 <a class="has-text-white column instrument" href= "drums.html"> <button class="button" onkeydown="AnswerList()" id="option1">Drums</button></a>
                 <a class="has-text-white column instrument" href= "guitar copy.html"><button class="button" onkeydown="AnswerList()" id="option2"> Guitar </button></a>
-                <a class="has-text-white column instrument" href= "cello copy.html"><button class="button" onkeydown="AnswerList()" id="option3">Cello </button></a>
+                <a class="has-text-white column instrument" href= "cello record copy.html"><button class="button" onkeydown="AnswerList()" id="option3">Cello </button></a>
                 <a class="has-text-white column instrument" href = "piano.html"><button class="button" onkeydown="AnswerList()" id="option4">Piano</button></a>
-                <a class="has-text-white column instrument" href = "DJ_record.html"><button class="button" onkeydown="AnswerList()" id="option4">DJ</button></a>
+                <a class="has-text-white column instrument" href = "DJ_record.html"><button class="button" onkeydown="AnswerList()" id="option5">DJ</button></a>
             </div>
             <p class = "content is-large"> Press <b>BACKSPACE</b> to return to homepage</p>
         </div>
         <script src = "https://code.jquery.com/jquery-3.4.1.min.js"> </script>
     <script>
-        var Pages = ['drums', 'guitar', 'cello', 'piano'];
-        var links= [document.getElementById("option1"),document.getElementById("option2"),document.getElementById("option3"),document.getElementById("option4")];
+        var Pages = ['drums', 'guitar', 'cello', 'piano', 'dj'];
+        var links= [document.getElementById("option1"),document.getElementById("option2"),document.getElementById("option3"),document.getElementById("option4"), document.getElementById("option5")];
         let cs = -1;
         let c = 0;
         
@@ -57,10 +57,11 @@
         }
         function AnswerList()
         {
-             document.getElementById("option1").innerHTML =Pages[0];
+             document.getElementById("option1").innerHTML = Pages[0];
              document.getElementById("option2").innerHTML = Pages[1];
              document.getElementById("option3").innerHTML = Pages[2];
              document.getElementById("option4").innerHTML = Pages[3];
+             document.getElementById("option5").innerHTML = Pages[4]; 
         }
 
         document.addEventListener('keydown', event => {
