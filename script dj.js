@@ -29,7 +29,7 @@ function stop(path) {
 }
 
 
-
+var isRecording = false;
 var Notes = ['C', 'Cs', 'D', 'Ds', 'E', 'F', 'Fs', 'G', 'Gs', 'Snare', 'Kick', 'Hihat'];
 var sounds;
 var playlist = [new Audio('tonejs-instruments/samples/cello/C3.wav'), new Audio('tonejs-instruments/samples/cello/Cs3.wav'), new Audio('tonejs-instruments/samples/cello/D3.wav'),
@@ -65,7 +65,7 @@ async function load() {
   console.log('sound', Path);
 
   AnswerList();
-  await say("Welcome to the DJ page! Use the left and right arrow keys to scroll through the notes in the scale. Click enter to hear the note name and click the space bar to play the note sound! Press the right arrow to begin.");
+  await say("Welcome to the DJ page! This page will let you mix sounds from different instruments and record the music you create. Use the left and right arrow keys to scroll through the notes. Click enter to hear the note name and click the space bar to play the note sound! Press the shift key to start or stop recording, and once you have recorded yourself playing, press the up arrow to play it back. Press the right arrow to begin.");
 
   //await  play(SoundTarget);
 
@@ -157,6 +157,15 @@ document.onkeydown = function (e) {
     speechSynthesis.cancel();
     document.getElementById("return").click();
   }
+  if (key === 16){
+    speechSynthesis.cancel();
+    if (isRecording) { document.getElementById("stop_button").click(); }
+    else { document.getElementById("record_button").click(); }
+  }
+  if (key === 38){
+    speechSynthesis.cancel();
+    document.getElementById("playback_button").click();
+  }
 };
 
 document.onkeyup = function (e) {
@@ -175,7 +184,6 @@ function restart() {
   cs = -1;
 }
 
-
 //array to save key events
 var recording = function (e) {
   recording.data.push(e);
@@ -185,6 +193,7 @@ var recording = function (e) {
 //recording function
 document.getElementById("record_button").onclick = function () {
 
+  isRecording = true;
   var record = document.getElementById("record_button");
   var stop = document.getElementById("stop_button");
   var playb = document.getElementById("playback_button");
@@ -205,6 +214,8 @@ document.getElementById("record_button").onclick = function () {
 
 //stop recording
 document.getElementById("stop_button").onclick = function () {
+
+  isRecording = false;
 
   var record = document.getElementById("record_button");
   var stop = document.getElementById("stop_button");
