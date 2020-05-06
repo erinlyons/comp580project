@@ -145,7 +145,7 @@ function say(s) {
       startAnatural();
     }
     if (key===13) {
-      say("Note " + Answers[cs]);
+      say(Answers[cs]);
     }
     if (key === 39) {
       speechSynthesis.cancel();
